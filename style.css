@@ -16,7 +16,7 @@ h1 {
 }
 
 button {
-    background-color: #ff69b4;
+    background-color: #CC8B86;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -40,12 +40,4 @@ button:hover {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    color: #ff69b4;
-}
-
-p {
-    font-size: 18px;
 }

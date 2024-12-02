@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Function Declaration for Game 1
     function startEvenOddGame() {
         let wins = 0;
         let losses = 0;
@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirm(`${name}, would you like to keep playing this game?`)) {
                 playGame();
             } else if (confirm(`${name}, would you like to pick another game to play?`)) {
-                // Allow the player to choose a new game
                 document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
             } else {
                 alert(`See you later, ${name}!`);
@@ -63,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
         playGame();
     }
 
-    // Function Expression for Game 2
     const startMagicEightBallGame = function() {
         function getUserName() {
             let name;
@@ -102,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (!confirm(`${userName}, would you like to keep playing this game?`)) {
                         if (confirm(`${userName}, would you like to pick another game to play?`)) {
-                            // Allow the player to choose a new game
                             document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
                         } else {
                             alert(`See you later, ${userName}!`);
@@ -116,14 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Arrow Function for Game 3 (Placeholder)
     const startGame3 = () => {
         let name = prompt("Hi! What's your name?");
         alert(`${name}, Game 3 content goes here...`);
         if (confirm(`${name}, would you like to keep playing this game?`)) {
             startGame3();
         } else if (confirm(`${name}, would you like to pick another game to play?`)) {
-            // Allow the player to choose a new game
             document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
         } else {
             alert(`See you later, ${name}!`);
@@ -131,14 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function openGame(gameId) {
-        // Hide all game containers
         const games = document.querySelectorAll('.game-container');
         games.forEach(game => game.style.display = 'none');
 
-        // Show the selected game container
         document.getElementById(gameId).style.display = 'block';
 
-        // Start the selected game
         if (gameId === 'game1') {
             startEvenOddGame();
         } else if (gameId === 'game2') {

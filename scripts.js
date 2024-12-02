@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
             } else {
                 alert(`See you later, ${name}!`);
-                showReloadButton();
             }
         }
 
@@ -107,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
                         } else {
                             alert(`See you later, ${userName}!`);
-                            showReloadButton();
                             break;
                         }
                     }
@@ -129,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
         } else {
             alert(`See you later, ${name}!`);
-            showReloadButton();
         }
     };
 
@@ -149,13 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (gameId === 'game3') {
             startGame3();
         }
-    }
-
-    function showReloadButton() {
-        const reloadButton = document.createElement('button');
-        reloadButton.textContent = 'Reload Page';
-        reloadButton.onclick = () => location.reload();
-        document.body.appendChild(reloadButton);
     }
 
     window.openGame = openGame;

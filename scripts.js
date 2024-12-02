@@ -96,14 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openGame(gameId) {
-        // Hide all game containers
         const games = document.querySelectorAll('.game-container');
         games.forEach(game => game.style.display = 'none');
 
-        // Show the selected game container
         document.getElementById(gameId).style.display = 'block';
 
-        // Start the selected game
         if (gameId === 'game1') {
             startEvenOddGame();
         } else if (gameId === 'game2') {

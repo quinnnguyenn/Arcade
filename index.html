@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Launcher</title>
+    <style>
+        .game-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Game Launcher</h1>
+    <button onclick="openGame('game1')">Open Game 1</button>
+    <button onclick="openGame('game2')">Open Game 2</button>
+    <button onclick="openGame('game3')">Open Game 3</button>
+
+    <div id="game1" class="game-container">
+        <!-- Even and Odd game code -->
+        <h2>Even and Odd Game</h2>
+        <script>
+            let wins = 0;
+            let losses = 0;
+            let name;
+            window.onload = playGame;
+
+            function playerName() {
+                while (!name) {
+                    name = prompt("Hi! What's your name?");
+                    if (!name) {
+                        alert('Please enter a name, ex: "Quinn"');
+                    }
+                }
+            }
+
+            function playerGuess() {
+                let guess;
+                while (!guess || (guess.toLowerCase() !== "even" && guess.toLowerCase() !== "odd")) {
+                    guess = prompt(`Welcome ${name}, even or odd?`, "even");
+                    if (!guess || (guess.toLowerCase() !== "even" && guess.toLowerCase() !== "odd")) {
+                        alert('Please enter "even" or "odd".');
+                    }
+                }
+                return guess.toLowerCase();
+            }
+
+            function playGame() {
+                if (!name) {
+                    playerName();
+                }
+
+                let guess = playerGuess();
+
+                let randomNumber1 = Math.floor(Math.random() * 4) + 1;
+                let randomNumber2 = Math.floor(Math.random() * 4) + 1;
+
+                let sum = randomNumber1 + randomNumber2;
+
+                let result = (sum % 2 === 0) ? "even" : "odd";
+
+                let outcome = (guess === result) ? "win" : "lose";
+
+                if (outcome === "win") {
+                    wins++;
+                } else {
+                    losses++;
+                }
+
+                alert(`${name}, you picked ${guess}. The sum is ${result}, you ${outcome}!`);
+                alert(`Score: Wins: ${wins} - Losses: ${losses}`);
+
+                if (confirm(`Do you want to play again ${name}?`)) {
+                    playGame();
+                }
+            }
+        </script>
+    </div>
+    <div id="game2" class="game-container">
+        <!-- Magic Eight Ball game code -->
+        <h2>Magic Eight Ball Game</h2>
+        <script>
+            function getUserName() {
+                let name;
+                while (!name) {
+                    name = prompt("What is your name?");
+                    if (name === null) {
+                        alert("See you later!");
+                        return null;
+                    } else if (!name.trim()) {
+                        alert("Please type your name.");
+                        name = null;
+                    }
+                }
+                return name;
+            }
+
+            let userName = getUserName();
+
+            if (userName !== null) {
+                const responses = ["Yes!", "Nope", "Unclear", "Absolutely", "Ask again later", "It's possible", "Impossible"];
+
+                function getRandomResponse() {
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+
+                while (true) {
+                    let userQuestion = prompt(`Hi, ${userName}! What's your question?`);
+
+                    if (userQuestion === null) {
+                        alert("See you later!");
+                        break;
+                    } else {
+                        alert(`${getRandomResponse()}`);
+                    }
+                }
+            }
+        </script>
+    </div>
+    <div id="game3" class="game-container">
+        <!-- Paste your Game 3 code here -->
+        <h2>Game 3</h2>
+        <p>Game 3 content goes here...</p>
+    </div>
+
+    <script>
+        function openGame(gameId) {
+            // Hide all game containers
+            const games = document.querySelectorAll('.game-container');
+            games.forEach(game => game.style.display = 'none');
+
+            // Show the selected game container
+            document.getElementById(gameId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -174,10 +174,9 @@ const startBearNinjaHunterGame = () => {
     function openGame(gameId) {
  
         const games = document.querySelectorAll('.game-container')
-        games.forEach(game => game.style.display = 'none');
 
 
-        document.getElementById(gameId).style.display = 'block';
+
 
 
         if (gameId === 'game1') {

@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 playGame();
             } else if (confirm(`${name}, would you like to pick another game to play?`)) {
 
-                document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
+        
             } else {
                 alert(`See you later, ${name}!`);
             }
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!confirm(`${userName}, would you like to keep playing this game?`)) {
                         if (confirm(`${userName}, would you like to pick another game to play?`)) {
 
-                            document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
+
                         } else {
                             alert(`See you later, ${userName}!`);
                             break;

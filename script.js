@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let totalGamesPlayed = 0;
+
     function startGuessingGame() {
         let name;
         while (!name) {
@@ -11,19 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
         function playGame() {
             let randomNumber = Math.floor(Math.random() * 10) + 1;
             console.log(randomNumber);
-            let guessCount= 0;
+            let guessCount = 0;
             let userGuess;
-
             userGuess = prompt("Guess a number between 1 and 10!");
             while (true) {
                 if (isNaN(userGuess) || userGuess.trim() === "") {
                     alert("Please enter a valid response");
                     userGuess = prompt("Guess a number between 1 and 10!");
-                    continue
+                    continue;
                 }
                 userGuess = parseInt(userGuess);
                 guessCount++;
-
                 if (userGuess === randomNumber) {
                     alert(`You guessed it in ${guessCount} guesses!`);
                     break;
@@ -32,23 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     userGuess = prompt("Guess was too low, guess again!");
                 }
-        }
-
+            }
+            totalGamesPlayed++;
             if (confirm(`${name}, would you like to keep playing this game?`)) {
                 playGame();
             } else if (confirm(`${name}, would you like to pick another game to play?`)) {
 
-        
             } else {
-                alert(`See you later, ${name}!`);
+                alert(`See you later, ${name}! You played a total of ${totalGamesPlayed} games.`);
             }
         }
-
         playGame();
     }
 
-
-    
     const startMagicEightBallGame = function() {
         function getUserName() {
             let name;
@@ -65,8 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return name;
         }
 
-        let userName = getUserName()
-
+        let userName = getUserName();
         if (userName !== null) {
             const responses = ["Yes!", "Nope", "Unclear", "Absolutely", "Ask again later", "It's possible", "Impossible"];
 
@@ -77,32 +72,28 @@ document.addEventListener('DOMContentLoaded', () => {
             function playGame() {
                 while (true) {
                     let userQuestion = prompt(`Hi, ${userName}! What's your question?`);
-
                     if (userQuestion === null) {
-                        alert("See you later!");
+                        alert(`See you later, ${userName}! You played a total of ${totalGamesPlayed} games.`);
                         break;
                     } else {
                         alert(`${getRandomResponse()}`);
                     }
-
+                    totalGamesPlayed++;
                     if (!confirm(`${userName}, would you like to keep playing this game?`)) {
                         if (confirm(`${userName}, would you like to pick another game to play?`)) {
 
-
                         } else {
-                            alert(`See you later, ${userName}!`);
+                            alert(`See you later, ${userName}! You played a total of ${totalGamesPlayed} games.`);
                             break;
                         }
                     }
                 }
             }
-
             playGame();
         }
-        };
+    };
 
-    
-const startBearNinjaHunterGame = () => {
+    const startBearNinjaHunterGame = () => {
         function toForcedCase(input) {
             return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
         }
@@ -119,15 +110,12 @@ const startBearNinjaHunterGame = () => {
         function playGame() {
             let choices = ['Bear', 'Ninja', 'Hunter'];
             let playerChoice = toForcedCase(prompt('Who are you: Bear, Ninja, or Hunter?'));
-
             while (!choices.includes(playerChoice)) {
                 alert('Please enter a valid response');
                 playerChoice = toForcedCase(prompt('Who are you: Bear, Ninja, or Hunter?'));
             }
-
             let randomIndex = Math.floor(Math.random() * 3);
             let computerChoice = choices[randomIndex];
-
             let outcome;
             switch (playerChoice + computerChoice) {
                 case 'BearBear':
@@ -146,9 +134,7 @@ const startBearNinjaHunterGame = () => {
                     outcome = 3;
                     break;
             }
-
             let message = `${name} you picked ${playerChoice}!\nThe computer picked ${computerChoice}!`;
-
             if (outcome === 1) {
                 message += "\nIt's a tie!";
             } else if (outcome === 2) {
@@ -156,29 +142,21 @@ const startBearNinjaHunterGame = () => {
             } else if (outcome === 3) {
                 message += "\nYou lose!";
             }
-
             alert(message);
-
+            totalGamesPlayed++;
             if (confirm(`${name}, would you like to keep playing this game?`)) {
                 playGame();
             } else if (confirm(`${name}, would you like to pick another game to play?`)) {
 
             } else {
-                alert(`See you later, ${name}!`);
+                alert(`See you later, ${name}! You played a total of ${totalGamesPlayed} games.`);
             }
         }
-
         playGame();
     };
 
     function openGame(gameId) {
- 
-        const games = document.querySelectorAll('.game-container')
-
-
-
-
-
+        const games = document.querySelectorAll('.game-container');
         if (gameId === 'game1') {
             startGuessingGame();
         } else if (gameId === 'game2') {

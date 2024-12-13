@@ -163,7 +163,6 @@ const startBearNinjaHunterGame = () => {
                 playGame();
             } else if (confirm(`${name}, would you like to pick another game to play?`)) {
 
-                document.querySelectorAll('.game-container').forEach(game => game.style.display = 'none');
             } else {
                 alert(`See you later, ${name}!`);
             }

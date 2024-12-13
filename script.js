@@ -1,15 +1,4 @@
-if (gameId === 'game1') {
-    startGuessingGame();
-} else if (gameId === 'game2') {
-    startMagicEightBallGame();
-} else if (gameId === 'game3') {
-    startBearNinjaHunterGame();
-}
-
-
-window.openGame = openGame;
-
-document.addEventListener('DOMContentLoaded', () => 
+document.addEventListener('DOMContentLoaded', () => {
     function startGuessingGame() {
         let name;
         while (!name) {
@@ -191,4 +180,15 @@ const startBearNinjaHunterGame = () => {
 
         document.getElementById(gameId).style.display = 'block';
 
+
+        if (gameId === 'game1') {
+            startGuessingGame();
+        } else if (gameId === 'game2') {
+            startMagicEightBallGame();
+        } else if (gameId === 'game3') {
+            startBearNinjaHunterGame();
+        }
+    }
+
+    window.openGame = openGame;
 });

@@ -30,14 +30,3 @@ button {
 button:hover {
     background-color: #7D4F50;
 }
-
-.game-container {
-    display: none;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-    background-color: #faf1f1;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
